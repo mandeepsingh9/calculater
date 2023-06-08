@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+  <style>
+    .calculator {
+  width: 300px;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+}
+
+#display {
+  width: 92%;
+  padding: 10px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  
+}
+
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  
+  gap: 10px;
+  grid-column: 1 / span 2;
+}
+
+input[type="button"] {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+ 
+  cursor: pointer;
+  border-radius: 20px;
+  
+}
+
+input[type="button"]:hover {
+  background-color: #f5f5f5;
+}
+.btn-equal {
+            grid-column: 2 / span 3; 
+            background-color: rgb(218, 209, 209);
+            border: 1px solid #ccc;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 18px;
+             border-radius: 20px;
+
+        }
+.btn
+{
+    width: 100%;
+  padding: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: rgb(218, 209, 209);
+  border: 1px solid #ccc;
+ 
+  cursor: pointer;
+  border-radius: 20px;
+}        
+  </style>
+</head>
+<body>
+    <div class="calculator">
+        <form onsubmit="return false;">
+      <input type="text" id="display" readonly>
+      <div class="buttons">
+        <input type="button" value="1" onclick="appendvalue('1')">
+        <input type="button" value="2" onclick="appendvalue('2')">
+        <input type="button" value="3" onclick="appendvalue('3')">
+        <button class="btn" onclick="appendvalue('+')">+</button>
+        <input type="button" value="4" onclick="appendvalue('4')">
+        <input type="button" value="5" onclick="appendvalue('5')">
+        <input type="button" value="6" onclick="appendvalue('6')">
+        <button class="btn" onclick="appendvalue('-')">-</button>
+        <input type="button" value="7" onclick="appendvalue('7')">
+        <input type="button" value="8" onclick="appendvalue('8')">
+        <input type="button" value="9" onclick="appendvalue('9')">
+        <button class="btn" onclick="appendvalue('*')">*</button>
+        <input type="button" value="0" onclick="appendvalue('0')">
+        <input type="button" value="." onclick="appendvalue('.')">
+        <input type="button" value="/"  onclick="appendvalue('/')">
+        <button class="btn" onclick="back()"> <--'</button>
+        <button class="btn" onclick="clean()">clear</button>
+        <button class="btn-equal" onclick="submitt()">=</button>
+
+       
+      </div>
+      
+     
+    </form>
+  </div>
+
+</body>
+<script>
+    
+    function appendvalue(val) {
+       
+     document.getElementById("display").value+=val;
+     
+} 
+  
+function submitt()
+{
+    var str=document.getElementById('display').value;
+    //document.getElementById('display()').value="";
+       console.log(eval(str));
+    document.getElementById('display').value=eval(str);
+}
+ function clean()
+ {
+    document.getElementById('display').value="";  
+ }
+ function back()
+ {
+    var str=document.getElementById('display').value;
+    str = str.substring(0, str.length - 1);
+    document.getElementById('display').value=str;
+ }
+</script>
+</html>
